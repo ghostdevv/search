@@ -35,6 +35,7 @@ export const commands: Record<string, Engine> = {
     crates: ['Crates.io', 'https://crates.io/search?q=$#'],
     pypi: ['pypi', 'https://pypi.org/search/?q=$#'],
     djs: ['discord.js', 'https://discord.js.org/#/docs/discord.js/stable/search?query=$#'],
+    gitpod: ['GitPod', ([q]) => `https://gitpod.io/#https://github.com/${q}`],
 
     // Video
     yt: ['Youtube', 'https://www.youtube.com/results?search_query=$#'],
