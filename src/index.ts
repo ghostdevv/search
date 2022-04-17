@@ -32,7 +32,10 @@ API.add('GET', '*', async (request, context) => {
     const query = url.searchParams.get('q') as string;
 
     if (!query.startsWith('!'))
-        return Response.redirect(`https://duckduckgo.com/?q=${query}`, 307);
+        return Response.redirect(
+            `https://duckduckgo.com/?q=${encodeURIComponent(query)}`,
+            307,
+        );
 
     const [command, ...args] = query.slice(1).split(' ');
 
