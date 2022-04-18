@@ -49,4 +49,7 @@ export const commands: Record<string, Engine> = {
 
     // Links
     ghost: ['GHOST', 'https://ghostdev.xyz'],
+
+    // Misc
+    l: ['LocalHost', ([port, ...q]) => `http://localhost:${port}/${q.map(encodeURIComponent).join('/')}`],
 };
