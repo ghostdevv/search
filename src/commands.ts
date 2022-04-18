@@ -43,6 +43,10 @@ export const commands: Record<string, Engine> = {
     atorrents: ['ATorrents', 'https://atorrents.com/search/$#'],
     pirate: ['The Pirate Bay', 'https://thepiratebay.org/search.php?q=$#'],
 
+    // Linux
+    aur: ['AUR', 'https://aur.archlinux.org/packages.php?K=$#'],
+    arch: ['Arch Forums', 'https://bbs.archlinux.org/search.php?action=search&keywords=$#'],
+
     // Links
     ghost: ['GHOST', 'https://ghostdev.xyz'],
 };
