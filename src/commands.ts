@@ -12,7 +12,7 @@ export const commands: Record<string, Engine> = {
                 return `https://github.com/${query}`;
             }
 
-            return 'https://github.com/search?q=$#';
+            return 'https://cs.github.com/?scopeName=All+repos&scope=&q=$#';
         }],
 
     svelte: ['Svelte', ([query]) => {
