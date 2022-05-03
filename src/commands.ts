@@ -37,7 +37,7 @@ export const commands: Record<string, Engine> = {
     pypi: ['pypi', 'https://pypi.org/search/?q=$#'],
     djs: ['discord.js', 'https://discord.js.org/#/docs/discord.js/stable/search?query=$#'],
     gitpod: ['GitPod', ([q]) => `https://gitpod.io/#https://github.com/${q}`],
-    whois: ['WhoIs', 'https://whois.com/whois/$1'],
+    whois: ['WhoIs', 'https://whois.com/whois/$0'],
 
     // Video
     yt: ['Youtube', 'https://www.youtube.com/results?search_query=$#'],
