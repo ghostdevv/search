@@ -29,11 +29,12 @@ API.add('GET', '*', async (request, context) => {
             message: 'Missing query parameter: q',
         });
 
+    const search = url.searchParams.get('s') || 'https://duckduckgo.com/';
     const query = url.searchParams.get('q') as string;
 
     if (!query.startsWith('!'))
         return Response.redirect(
-            `https://duckduckgo.com/?q=${encodeURIComponent(query)}`,
+            `${search}?q=${encodeURIComponent(query)}`,
             307,
         );
 
