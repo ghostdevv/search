@@ -5,6 +5,7 @@ export const commands: Record<string, Engine> = {
     // Search Engines
     ddg: ['DuckDuckGo', 'https://duckduckgo.com/?q=$#'],
     yandex: ['Yandex', 'https://yandex.com/search/?text=$#'],
+    ecosia: ['Ecosia', 'https://www.ecosia.org/search?q=$#'],
 
     // Dev
     gh: ['GitHub', ([query]) => {
