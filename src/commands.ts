@@ -52,6 +52,7 @@ export const commands: Record<string, Engine> = {
 
     // Links
     ghost: ['GHOST', 'https://ghostdev.xyz'],
+    cf: ['Cloudflare Shortcut', 'https://dash.cloudflare.com/44321e1b7fbd29b56b65c1890a3bbee2'],
 
     // Misc
     l: ['LocalHost', ([port, ...q]) => `http://localhost:${port}/${q.map(encodeURIComponent).join('/')}`],
