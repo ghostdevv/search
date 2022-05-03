@@ -55,4 +55,7 @@ export const commands: Record<string, Engine> = {
 
     // Misc
     l: ['LocalHost', ([port, ...q]) => `http://localhost:${port}/${q.map(encodeURIComponent).join('/')}`],
+    ip: ['IP', 'https://ip.willow.sh'],
+    echo: ['Echo', 'https://echo.willow.sh?q=$#'],
+    secret: ['Echo Encode (secret)', ([...q]) => `https://echo.willow.sh/?encoded=1&q=${encodeURIComponent(btoa(q.join(' ')))}`],
 };
