@@ -1,15 +1,11 @@
-type = "javascript"
 name = "search"
 account_id = "44321e1b7fbd29b56b65c1890a3bbee2"
+compatibility_date = "2022-04-05"
 
+main = "build/index.mjs"
 
 [build]
 command = "npm run build"
-
-[build.upload]
-format = "modules"
-main = "./index.mjs"
-dir = "build"
 
 [miniflare]
 kv_persist = true
