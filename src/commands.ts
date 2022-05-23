@@ -16,7 +16,7 @@ export const commands: Record<string, Engine> = {
             return 'https://cs.github.com/?scopeName=All+repos&scope=&q=$#';
         }],
 
-    ghs: ['Github Self', 'https://github.com/ghostdevv/$1'],
+    ghs: ['Github Self', 'https://github.com/ghostdevv/$0'],
 
     svelte: ['Svelte', ([query]) => {
             switch (query) {
