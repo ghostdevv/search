@@ -6,6 +6,7 @@ import { start } from 'worktop/cfw';
 
 import { commands } from './commands';
 import { run } from './utils';
+import { opensearchText } from './opensearch';
 
 // Create new Router
 const API = new Router();
@@ -23,6 +24,12 @@ API.prepare = compose(
 
 API.add('GET', '*', async (request, context) => {
     const url = new URL(request.url);
+
+    if (url.pathname == '/opensearch.xml') {
+        return reply(200, opensearchText, {
+            'Content-Type': 'application/xml',
+        });
+    }
 
     if (!url.searchParams.has('q'))
         return reply(400, {
