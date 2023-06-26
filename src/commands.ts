@@ -40,6 +40,7 @@ export const commands: Record<string, Engine> = {
     djs: ['discord.js', 'https://discord.js.org/#/docs/discord.js/stable/search?query=$#'],
     gitpod: ['GitPod', ([q]) => `https://gitpod.io/#https://github.com/${q}`],
     whois: ['WhoIs', 'https://whois.com/whois/$0'],
+    mod: ['Modrinth', 'https://modrinth.com/mods?q=$#'],
     mods: ['Modrinth', 'https://modrinth.com/mods?q=$#'],
 
     // Video
