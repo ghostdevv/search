@@ -8,7 +8,7 @@ import { run } from './utils';
 
 const app = new Hono<Env>();
 
-app.use('*', cors());
+// app.use('*', cors());
 app.use('*', logger());
 app.use('*', cache({ cacheName: 'default', cacheControl: 'max-age=604800' }));
 
