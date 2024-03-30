@@ -1,69 +1,46 @@
-import * as Cache from 'worktop/cfw.cache';
-import { Router, compose } from 'worktop';
-import { reply } from 'worktop/response';
-import * as CORS from 'worktop/cors';
-import { start } from 'worktop/cfw';
-
 import { commands } from './commands';
+import { logger } from 'hono/logger';
+import type { Env } from './types';
+import { cache } from 'hono/cache';
+import { cors } from 'hono/cors';
+import { Hono } from 'hono';
 import { run } from './utils';
-import { opensearchText } from './opensearch';
 
-// Create new Router
-const API = new Router();
+const app = new Hono<Env>();
 
-API.prepare = compose(
-    // Attach `Cache` lookup -> save
-    Cache.sync(),
+app.use('*', cors());
+app.use('*', logger());
+app.use('*', cache({ cacheName: 'default', cacheControl: 'max-age=604800' }));
 
-    // Attach global CORS config
-    CORS.preflight({
-        maxage: 3600 * 6, // 6 hr
-        credentials: true,
-    }),
-);
+app.get('/*', async (c) => {
+    const { s: search = 'https://duckduckgo.com/', q: query } = c.req.query();
 
-API.add('GET', '*', async (request, context) => {
-    const url = new URL(request.url);
-
-    if (url.pathname == '/opensearch.xml') {
-        return reply(200, opensearchText, {
-            'Content-Type': 'application/xml',
-        });
+    if (!query) {
+        return c.json({ message: 'Missing query parameter: q' }, 400);
     }
 
-    if (!url.searchParams.has('q'))
-        return reply(400, {
-            message: 'Missing query parameter: q',
-        });
-
-    const search = url.searchParams.get('s') || 'https://duckduckgo.com/';
-    const query = url.searchParams.get('q') as string;
-
-    if (!query.startsWith('!'))
-        return Response.redirect(
-            `${search}?q=${encodeURIComponent(query)}`,
-            307,
-        );
+    if (!query.startsWith('!')) {
+        return c.redirect(`${search}?q=${encodeURIComponent(query)}`, 307);
+    }
 
     const [command, ...args] = query.slice(1).split(' ');
 
     if (command == 'help') {
         const help: Record<string, string> = {};
 
-        for (const [command, [name]] of Object.entries(commands))
+        for (const [command, [name]] of Object.entries(commands)) {
             help[name] = `!${command}`;
+        }
 
-        return reply(200, JSON.stringify(help, null, 2));
+        return c.json(help);
     }
 
     try {
         const result = await run(command, args);
         return Response.redirect(result, 307);
     } catch (e) {
-        return reply(400, {
-            message: (e as Error).message,
-        });
+        return c.json({ message: (e as Error)?.message || e }, 400);
     }
 });
 
-export default start(API.run);
+export default app;

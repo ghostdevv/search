@@ -4,17 +4,15 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  hono:
-    specifier: ^4.0.3
-    version: 4.1.5
-
 devDependencies:
   '@cloudflare/workers-types':
-    specifier: ^4.20240208.0
+    specifier: ^4.20240329.0
     version: 4.20240329.0
+  hono:
+    specifier: ^4.1.5
+    version: 4.1.5
   wrangler:
-    specifier: ^3.28.3
+    specifier: ^3.41.0
     version: 3.41.0(@cloudflare/workers-types@4.20240329.0)
 
 packages:
@@ -507,7 +505,7 @@ packages:
   /hono@4.1.5:
     resolution: {integrity: sha512-3ChJiIoeCxvkt6vnkxJagplrt1YZg3NyNob7ssVeK2PUqEINp4q1F94HzFnvY9QE8asVmbW5kkTDlyWylfg2vg==}
     engines: {node: '>=16.0.0'}
-    dev: false
+    dev: true
 
   /is-binary-path@2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
