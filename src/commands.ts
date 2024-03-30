@@ -13,7 +13,7 @@ export const commands: Record<string, Engine> = {
                 return `https://github.com/${query}`;
             }
 
-            return 'https://cs.github.com/?scopeName=All+repos&scope=&q=$#';
+            return 'https://github.com/search?q=$#';
         }],
 
     ghs: ['Github Self', 'https://github.com/ghostdevv/$0'],
