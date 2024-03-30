@@ -5,7 +5,6 @@ export const commands: Record<string, Engine> = {
     // Search Engines
     ddg: ['DuckDuckGo', 'https://duckduckgo.com/?q=$#'],
     yandex: ['Yandex', 'https://yandex.com/search/?text=$#'],
-    ecosia: ['Ecosia', 'https://www.ecosia.org/search?q=$#'],
 
     // Dev
     gh: ['GitHub', ([query]) => {
@@ -38,16 +37,13 @@ export const commands: Record<string, Engine> = {
     crates: ['Crates.io', 'https://crates.io/search?q=$#'],
     pypi: ['pypi', 'https://pypi.org/search/?q=$#'],
     djs: ['discord.js', 'https://discord.js.org/#/docs/discord.js/stable/search?query=$#'],
-    gitpod: ['GitPod', ([q]) => `https://gitpod.io/#https://github.com/${q}`],
+    gitpod: ['Gitpod', ([q]) => `https://gitpod.io/#https://github.com/${q}`],
     whois: ['WhoIs', 'https://whois.com/whois/$0'],
     mod: ['Modrinth', 'https://modrinth.com/mods?q=$#'],
     mods: ['Modrinth', 'https://modrinth.com/mods?q=$#'],
 
     // Video
     yt: ['Youtube', 'https://www.youtube.com/results?search_query=$#'],
-    netflix: ['Netflix', 'https://www.netflix.com/search?q=$#'],
-    atorrents: ['ATorrents', 'https://atorrents.com/search/$#'],
-    pirate: ['The Pirate Bay', 'https://thepiratebay.org/search.php?q=$#'],
 
     // Images
     pexels: ['Pexels', 'https://www.pexels.com/search/$#'],
@@ -57,7 +53,6 @@ export const commands: Record<string, Engine> = {
     arch: ['Arch Forums', 'https://bbs.archlinux.org/search.php?action=search&keywords=$#'],
 
     // Links
-    ghost: ['GHOST', 'https://ghostdev.xyz'],
     cf: ['Cloudflare Shortcut', 'https://dash.cloudflare.com/44321e1b7fbd29b56b65c1890a3bbee2'],
 
     // Misc
