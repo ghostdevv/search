@@ -3,11 +3,16 @@
   "packages": {
     "specifiers": {
       "jsr:@sauber/table@0.1.0": "jsr:@sauber/table@0.1.0",
+      "jsr:@std/cli": "jsr:@std/cli@1.0.0",
+      "jsr:@std/cli@^1.0.0": "jsr:@std/cli@1.0.0",
       "npm:ansi-regex": "npm:ansi-regex@6.0.1"
     },
     "jsr": {
       "@sauber/table@0.1.0": {
         "integrity": "528a02e0023c9e4aa00e438bebd9224263e718fac35fe833bc80b937e3d5ae65"
+      },
+      "@std/cli@1.0.0": {
+        "integrity": "3c38f1da21bff0d25a9e6d97139ef2eb9ba334b5910da92c0169b44f38655f08"
       }
     },
     "npm": {
@@ -17,5 +22,11 @@
       }
     }
   },
-  "remote": {}
+  "remote": {},
+  "workspace": {
+    "dependencies": [
+      "jsr:@sauber/table@0.1.0",
+      "jsr:@std/cli@^1.0.0"
+    ]
+  }
 }

@@ -1,13 +1,17 @@
 {
-    "tasks": {
-        "dev": "deno run --allow-net --watch src/main.ts",
-        "compile": "deno compile --allow-net --output search src/main.ts"
-    },
-    "fmt": {
-        "singleQuote": true,
-        "semiColons": true,
-        "useTabs": true,
-        "indentWidth": 4,
-        "lineWidth": 100
-    }
+	"tasks": {
+		"dev": "deno run --allow-net --watch src/main.ts",
+		"compile": "deno compile --allow-net --output search src/main.ts"
+	},
+	"fmt": {
+		"singleQuote": true,
+		"semiColons": true,
+		"useTabs": true,
+		"indentWidth": 4,
+		"lineWidth": 100
+	},
+	"imports": {
+		"@sauber/table": "jsr:@sauber/table@0.1.0",
+		"@std/cli": "jsr:@std/cli@^1.0.0"
+	}
 }

@@ -1,4 +1,4 @@
-import { Table } from 'jsr:@sauber/table@0.1.0';
+import { Table } from '@sauber/table';
 import ansiRegex from 'npm:ansi-regex';
 
 interface Command {
