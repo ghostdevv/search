@@ -42,6 +42,11 @@ export const commands: Command[] = [
 		handle: 'https://npmjs.com/search?q=$#',
 	},
 	{
+		name: 'jsr',
+		description: 'Search JSR for a package',
+		handle: 'https://jsr.io/packages?search=$#',
+	},
+	{
 		name: 'ts',
 		description: 'TypeScript',
 		handle: 'https://www.typescriptlang.org/play',
