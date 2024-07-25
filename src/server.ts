@@ -24,22 +24,17 @@ export function serve(port: number) {
 		const [name, ...args] = query.slice(1).split(' ');
 
 		const command = commands.find(
-			(command) =>
-				command.name == name || command.aliases?.includes(name),
+			(command) => command.name == name || command.aliases?.includes(name),
 		);
 
 		if (!command) {
 			return error(400, `Command "${name}" not found`);
 		}
 
-		const rawResult =
-			typeof command.handle == 'string'
-				? command.handle
-				: command.handle(args);
+		const rawResult = typeof command.handle == 'string' ? command.handle : command.handle(args);
 
 		const result = rawResult.replace(/\$(\d|#)/g, (_, index) => {
-			const replacement =
-				index == '#' ? args.join(' ') : args[Number(index)];
+			const replacement = index == '#' ? args.join(' ') : args[Number(index)];
 			return typeof replacement == 'string' ? replacement : `$${index}`;
 		});
 
@@ -47,9 +42,7 @@ export function serve(port: number) {
 			return error(400, 'Missing args');
 		}
 
-		return URL.parse(result)
-			? Response.redirect(result)
-			: new Response(result);
+		return URL.parse(result) ? Response.redirect(result) : new Response(result);
 	});
 
 	return {

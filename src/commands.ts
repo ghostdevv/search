@@ -33,8 +33,7 @@ export const commands: Command[] = [
 	{
 		name: 'ghs',
 		description: 'Github Self',
-		handle: ([query]) =>
-			`https://github.com/ghostdevv${query?.length ? `/${query}` : ''}`,
+		handle: ([query]) => `https://github.com/ghostdevv${query?.length ? `/${query}` : ''}`,
 	},
 	{
 		name: 'npm',
