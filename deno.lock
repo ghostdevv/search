@@ -6,6 +6,7 @@
       "jsr:@std/cli": "jsr:@std/cli@1.0.0",
       "jsr:@std/cli@^1.0.0": "jsr:@std/cli@1.0.0",
       "npm:ansi-regex": "npm:ansi-regex@6.0.1",
+      "npm:citty@^0.1.6": "npm:citty@0.1.6",
       "npm:dedent@^1.5.3": "npm:dedent@1.5.3"
     },
     "jsr": {
@@ -21,6 +22,16 @@
         "integrity": "sha512-n5M855fKb2SsfMIiFFoVrABHJC8QtHwVx+mHWP3QcEqBHYienj5dHSgjbxtC0WEZXYt4wcD6zrQElDPhFuZgfA==",
         "dependencies": {}
       },
+      "citty@0.1.6": {
+        "integrity": "sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==",
+        "dependencies": {
+          "consola": "consola@3.2.3"
+        }
+      },
+      "consola@3.2.3": {
+        "integrity": "sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==",
+        "dependencies": {}
+      },
       "dedent@1.5.3": {
         "integrity": "sha512-NHQtfOOW68WD8lgypbLA5oT+Bt0xXJhiYvoR6SmmNXZfpzOGXwdKWmcwG8N7PwVVWV3eF/68nmD9BaJSsTBhyQ==",
         "dependencies": {}
@@ -32,6 +43,7 @@
     "dependencies": [
       "jsr:@sauber/table@0.1.0",
       "jsr:@std/cli@^1.0.0",
+      "npm:citty@^0.1.6",
       "npm:dedent@^1.5.3"
     ]
   }

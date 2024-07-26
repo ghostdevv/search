@@ -1,23 +1,39 @@
-import { parse_cli, print_cmd_help } from './cli.ts';
+import pkg from '../deno.json' with { type: 'json' };
+import { defineCommand, runMain } from 'citty';
 import { serve } from './server.ts';
 
-const VALID_COMMANDS = ['serve'] as const;
+const cmd_serve = defineCommand({
+	meta: {
+		description: 'Run the search server for use with browsers',
+	},
+	args: {
+		port: {
+			type: 'string',
+			description: 'Port to run the server on',
+			default: '9343',
+			alias: 'p',
+		},
+	},
+	run({ args }) {
+		const port = parseInt(args.port);
 
-const { command, help, args } = parse_cli(VALID_COMMANDS);
-
-switch (command) {
-	case 'serve': {
-		if (help) {
-			print_cmd_help({
-				name: 'serve',
-				description: 'Serve the search server for use with browsers',
-				flags: [],
-			});
+		if (isNaN(port)) {
+			throw new Error('Port arg is not a number');
 		}
 
-		const port_arg = args.port && parseInt(args.port);
-		const port = isNaN(port_arg) ? 9343 : port_arg;
 		serve(port);
-		break;
-	}
-}
+	},
+});
+
+const main = defineCommand({
+	meta: {
+		name: 'search',
+		version: pkg.version,
+		description: 'some description',
+	},
+	subCommands: {
+		serve: cmd_serve,
+	},
+});
+
+await runMain(main);
