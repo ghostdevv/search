@@ -8,7 +8,7 @@ Group          = root
 LimitNOFILE    = 4096
 Restart        = always
 RestartSec     = 5s
-ExecStart      = /usr/local/bin/search
+ExecStart      = /usr/local/bin/search serve
 
 [Install]
 WantedBy = multi-user.target
