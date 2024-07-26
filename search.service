@@ -1,0 +1,14 @@
+[Unit]
+Description = search
+
+[Service]
+Type           = simple
+User           = root
+Group          = root
+LimitNOFILE    = 4096
+Restart        = always
+RestartSec     = 5s
+ExecStart      = /usr/local/bin/search
+
+[Install]
+WantedBy = multi-user.target
