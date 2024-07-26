@@ -1,8 +1,8 @@
 import pkg from '../deno.json' with { type: 'json' };
 import { defineCommand, runMain } from 'citty';
-import { serve } from './server.ts';
-import { search } from './search.ts';
 import { open_in_browser } from './utils.ts';
+import { search } from './search.ts';
+import { serve } from './server.ts';
 
 const cmd_serve = defineCommand({
 	meta: {
