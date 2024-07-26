@@ -5,7 +5,7 @@ on:
     types: [created]
 
 jobs:
-  publish-npm:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
