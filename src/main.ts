@@ -48,7 +48,13 @@ const cmd_search = defineCommand({
 
 			case 'search': {
 				const command = new Deno.Command('ddgr', {
-					args: [result.query],
+					args: [
+						'--url-handler xdg-open',
+						'--reg uk-en',
+						'--rev',
+						'--noua',
+						result.query,
+					],
 				});
 
 				command.spawn();
