@@ -1,6 +1,8 @@
 import pkg from '../deno.json' with { type: 'json' };
 import { defineCommand, runMain } from 'citty';
 import { serve } from './server.ts';
+import { search } from './search.ts';
+import { open_in_browser } from './utils.ts';
 
 const cmd_serve = defineCommand({
 	meta: {
@@ -25,6 +27,42 @@ const cmd_serve = defineCommand({
 	},
 });
 
+const cmd_search = defineCommand({
+	meta: {
+		description: 'Search for something',
+	},
+	args: {
+		query: {
+			type: 'positional',
+			description: 'The query to search for',
+			required: true,
+		},
+	},
+	run({ args }) {
+		const result = search(args._.join(' '));
+
+		switch (result.type) {
+			case 'text':
+				console.log(result.text);
+				break;
+
+			case 'search': {
+				const command = new Deno.Command('ddgr', {
+					args: [result.query],
+				});
+
+				command.spawn();
+				break;
+			}
+
+			case 'url':
+				console.log(`Opening ${result.href}`);
+				open_in_browser(result.href);
+				break;
+		}
+	},
+});
+
 const main = defineCommand({
 	meta: {
 		name: 'search',
@@ -33,6 +71,7 @@ const main = defineCommand({
 	},
 	subCommands: {
 		serve: cmd_serve,
+		search: cmd_search,
 	},
 });
 
