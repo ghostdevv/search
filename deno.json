@@ -3,7 +3,7 @@
 	"tasks": {
 		"dev": "deno run --allow-net --allow-env --allow-read --allow-run --watch src/main.ts",
 		"start": "deno run --allow-net --allow-env --allow-read --allow-run src/main.ts",
-		"compile": "deno compile --allow-net --allow-env --allow-read --allow-run --output search_linux_amd64 src/main.ts"
+		"compile": "deno compile --allow-net --allow-env --allow-read --allow-run --output search-linux-amd64 src/main.ts"
 	},
 	"fmt": {
 		"singleQuote": true,

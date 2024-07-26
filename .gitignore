@@ -2,4 +2,4 @@ node_modules
 dist
 .wrangler
 .dev.vars
-search_*
+search-linux-amd64
