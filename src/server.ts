@@ -1,3 +1,4 @@
+import { searchSiteTemplate } from './search_site.ts';
 import { search } from './search.ts';
 
 function error(code: number, message: string) {
@@ -11,10 +12,19 @@ export function serve(port: number) {
 		}
 
 		const url = new URL(request.url);
+
+		if (url.pathname != '/') {
+			return error(404, 'Not Found');
+		}
+
 		const query = url.searchParams.get('q')?.trim();
 
 		if (typeof query != 'string' || query.length == 0) {
-			return error(400, 'Missing query');
+			return new Response(searchSiteTemplate, {
+				headers: {
+					'Content-Type': 'text/html',
+				},
+			});
 		}
 
 		const result = search(query);
@@ -25,11 +35,6 @@ export function serve(port: number) {
 
 			case 'text':
 				return new Response(result.text);
-				// return new Response(result.text, {
-				// 	headers: {
-				// 		'Content-Type': 'text/plain',
-				// 	},
-				// });
 
 			case 'url':
 				return Response.redirect(result.href);
