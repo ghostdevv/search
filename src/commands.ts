@@ -68,8 +68,13 @@ export const commands: Command[] = [
 	},
 	{
 		name: 'gitpod',
+		aliases: ['gp'],
 		description: 'Gitpod',
-		handle: 'https://gitpod.io/#https://github.com/$0',
+		handle([repo]) {
+			return repo
+				? `https://gitpod.io/#${URL.parse(repo) ? repo : `https://github.com/${repo}`}`
+				: 'https://gitpod.new';
+		},
 	},
 	{
 		name: 'whois',
