@@ -123,6 +123,11 @@ export const commands: Command[] = [
 	},
 	{ name: 'ip', description: 'IP', handle: 'https://ip.willow.sh' },
 	{
+		name: 'echo',
+		description: 'Echo the text back to you',
+		handle: 'https://echo.willow.sh?q=$#',
+	},
+	{
 		name: 'help',
 		aliases: ['?'],
 		description: 'List all the commands',
