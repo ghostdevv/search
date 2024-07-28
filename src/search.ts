@@ -3,7 +3,8 @@ import { commands } from './commands.ts';
 type Result =
     | { type: 'url'; href: string }
     | { type: 'search'; query: string }
-    | { type: 'text'; text: string };
+    | { type: 'text'; text: string }
+    | { type: 'error'; message: string };
 
 export function search(query: string): Result {
     if (!query.startsWith('!')) {
@@ -17,7 +18,7 @@ export function search(query: string): Result {
     );
 
     if (!command) {
-        throw new Error(`Command "${name}" not found`);
+        return { type: 'error', message: `Command "${name}" not found` };
     }
 
     const rawResult = typeof command.handle == 'string' ? command.handle : command.handle(args);

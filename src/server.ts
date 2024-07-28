@@ -38,6 +38,9 @@ export function serve(port: number) {
 
 			case 'url':
 				return Response.redirect(result.href);
+
+			case 'error':
+				return error(400, result.message);
 		}
 	});
 
