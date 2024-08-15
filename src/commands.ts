@@ -56,6 +56,11 @@ export const commands: Command[] = [
 		handle: 'https://developer.mozilla.org/en-US/search?q=$#',
 	},
 	{
+		name: 'caniuse',
+		description: 'Query caniuse',
+		handle: 'https://caniuse.com/?search=$#',
+	},
+	{
 		name: 'crate',
 		aliases: ['crates'],
 		description: 'Crates.io',
