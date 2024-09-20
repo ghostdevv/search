@@ -128,6 +128,11 @@ export const commands: Command[] = [
 		handle: 'https://flathub.org/apps/search?q=$#',
 	},
 	{
+		name: 'docker',
+		description: 'Search the docker hub',
+		handle: 'https://hub.docker.com/search?q=$#',
+	},
+	{
 		name: 'cf',
 		description: 'Cloudflare Shortcut',
 		handle: 'https://dash.cloudflare.com/44321e1b7fbd29b56b65c1890a3bbee2',
