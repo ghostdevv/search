@@ -88,11 +88,7 @@ export const commands: Command[] = [
 	},
 	{
 		name: 'mod',
-		description: 'Modrinth',
-		handle: 'https://modrinth.com/mods?q=$#',
-	},
-	{
-		name: 'mods',
+		aliases: ['mods'],
 		description: 'Modrinth',
 		handle: 'https://modrinth.com/mods?q=$#',
 	},
@@ -103,6 +99,7 @@ export const commands: Command[] = [
 	},
 	{
 		name: 'train',
+		aliases: ['tt'],
 		description: 'train times',
 		handle: 'https://traintimes.org.uk/$0/$1',
 	},
