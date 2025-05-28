@@ -23,7 +23,7 @@ export const commands: Command[] = [
 		name: 'gh',
 		description: 'GitHub',
 		handle: ([query]) => {
-			if (/(\w)+\/(\w)+/g.test(query)) {
+			if (/^([\w-])+(\/[\w-]+)?$/g.test(query)) {
 				return `https://github.com/${query}`;
 			}
 
