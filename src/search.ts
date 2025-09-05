@@ -13,6 +13,10 @@ export function search(query: string): Result {
 
     const [name, ...args] = query.slice(1).split(' ');
 
+    if (!name) {
+        return { type: 'error', message: 'Missing command name' };
+    }
+
     const command = commands.find(
         (command) => command.name == name || command.aliases?.includes(name),
     );
