@@ -1,6 +1,7 @@
 # Search
 
-A CLI and API for searching that has built-in commands. Originally inspired by [alii/search](https://github.com/alii/search).
+A CLI and API for searching that has built-in commands. Originally inspired by
+[alii/search](https://github.com/alii/search).
 
 ## Installation
 

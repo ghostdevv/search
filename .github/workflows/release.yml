@@ -1,25 +1,25 @@
 name: Release Build
 
 on:
-  release:
-    types: [created]
+    release:
+        types: [created]
 
 jobs:
-  build-and-release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    build-and-release:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      - name: Setup Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: "^2.4.5"
+            - name: Setup Deno
+              uses: denoland/setup-deno@v2
+              with:
+                  deno-version: '^2.4.5'
 
-      - name: Build
-        run: deno task compile
+            - name: Build
+              run: deno task compile
 
-      - name: Upload files
-        uses: softprops/action-gh-release@v2
-        with:
-          files: ./search-linux-amd64
+            - name: Upload files
+              uses: softprops/action-gh-release@v2
+              with:
+                  files: ./search-linux-amd64

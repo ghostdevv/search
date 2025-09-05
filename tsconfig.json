@@ -1,22 +1,22 @@
 {
-  "compilerOptions": {
-      "strict": true,
-      "allowJs": true,
-      "module": "esnext",
-      "target": "ESNext",
-      "noImplicitAny": true,
-      "resolveJsonModule": true,
-      "strictBindCallApply": true,
-      "forceConsistentCasingInFileNames": true,
-      "allowSyntheticDefaultImports": true,
-      "moduleResolution": "node",
-      "strictNullChecks": true,
-      "removeComments": true,
-      "sourceMap": false,
-      "checkJs": true,
-      "noEmit": true,
-      "noUncheckedIndexedAccess": true,
-      "types": []
-  },
-  "include": ["src/**/*.ts"]
+	"compilerOptions": {
+		"strict": true,
+		"allowJs": true,
+		"module": "esnext",
+		"target": "ESNext",
+		"noImplicitAny": true,
+		"resolveJsonModule": true,
+		"strictBindCallApply": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node",
+		"strictNullChecks": true,
+		"removeComments": true,
+		"sourceMap": false,
+		"checkJs": true,
+		"noEmit": true,
+		"noUncheckedIndexedAccess": true,
+		"types": []
+	},
+	"include": ["src/**/*.ts"]
 }
