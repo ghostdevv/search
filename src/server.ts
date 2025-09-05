@@ -6,7 +6,7 @@ function error(code: number, message: string) {
 }
 
 export function serve(port: number) {
-	const server = Deno.serve({ port }, (request) => {
+	const server = Deno.serve({ port, hostname: '127.0.0.1' }, (request) => {
 		if (request.method != 'GET') {
 			return error(405, 'Method Not Allowed');
 		}
