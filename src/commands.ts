@@ -109,6 +109,11 @@ export const commands: Command[] = [
 		handle: 'https://www.youtube.com/results?search_query=$#',
 	},
 	{
+		name: 'arch-forums',
+		description: 'Arch Forums',
+		handle: 'https://bbs.archlinux.org/search.php?action=search&keywords=$#',
+	},
+	{
 		name: 'aur',
 		description: 'AUR',
 		handle: 'https://aur.archlinux.org/packages?K=$#',
