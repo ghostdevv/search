@@ -31,7 +31,9 @@ export function serve(port: number, hostname: string) {
 
 		switch (result.type) {
 			case 'search':
-				return Response.redirect(`https://duckduckgo.com?q=${result.query}`);
+				return Response.redirect(
+					`https://duckduckgo.com?q=${encodeURIComponent(result.query)}`,
+				);
 
 			case 'text':
 				return new Response(result.text);
