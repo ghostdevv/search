@@ -1,14 +1,12 @@
 [Unit]
 Description = search
+After=network.target
 
 [Service]
-Type           = simple
-User           = root
-Group          = root
-LimitNOFILE    = 4096
-Restart        = always
-RestartSec     = 5s
-ExecStart      = /usr/local/bin/search serve
+Type = simple
+Restart = on-failure
+RestartSec = 5
+ExecStart = /usr/local/bin/search serve
 
 [Install]
-WantedBy = multi-user.target
+WantedBy = default.target
