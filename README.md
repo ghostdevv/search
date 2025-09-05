@@ -16,7 +16,7 @@ curl -sL -o search https://github.com/ghostdevv/search/releases/latest/download/
 ### Service
 
 ```bash
-sudo curl -sL -o "$HOME/.config/systemd/user/search.service" 'https://raw.githubusercontent.com/ghostdevv/search/main/search.service' \
+curl -sL -o "$HOME/.config/systemd/user/search.service" 'https://raw.githubusercontent.com/ghostdevv/search/main/search.service' \
   && systemctl --user daemon-reload \
   && systemctl --user enable search --now
 ```
