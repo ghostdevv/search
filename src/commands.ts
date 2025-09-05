@@ -115,8 +115,8 @@ export const commands: Command[] = [
 	},
 	{
 		name: 'arch',
-		description: 'Arch Forums',
-		handle: 'https://bbs.archlinux.org/search.php?action=search&keywords=$#',
+		description: 'Search official Arch packages',
+		handle: 'https://archlinux.org/packages/?q=$#',
 	},
 	{
 		name: 'flathub',
