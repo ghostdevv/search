@@ -15,6 +15,12 @@ const cmd_serve = defineCommand({
 			default: '9343',
 			alias: 'p',
 		},
+		host: {
+			type: 'string',
+			description: 'Host to run the server on',
+			default: '127.0.0.1',
+			alias: 'h',
+		},
 	},
 	run({ args }) {
 		const port = parseInt(args.port);
@@ -23,7 +29,7 @@ const cmd_serve = defineCommand({
 			throw new Error('Port arg is not a number');
 		}
 
-		serve(port);
+		serve(port, args.host);
 	},
 });
 
