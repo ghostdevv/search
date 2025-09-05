@@ -12,9 +12,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2
         with:
-          deno-version: "^1.45.3"
+          deno-version: "^2.4.5"
 
       - name: Build
         run: deno task compile
