@@ -11,8 +11,6 @@
 	</head>
 	<body>
 		<main>
-			<h1 id="time"></h1>
-
 			<form>
 				<div class="search">
 					<input type="search" name="q" placeholder="Search..." />
@@ -53,36 +51,36 @@
 				width: 100%;
 				min-height: 100dvh;
 				max-width: 1200px;
-				margin: 0 auto;
 				padding: 32px;
-			}
 
-			#time {
-				margin: 0 auto;
-				margin-top: 25dvh;
-				text-align: center;
-				background-color: var(--background-tertiary);
-				padding: 8px 12px;
-				border-radius: 12px;
-				width: fit-content;
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: flex-end;
+				align-items: center;
 			}
 
 			form {
-				display: flex;
-				flex-flow: row nowrap;
-				justify-content: center;
-				align-items: center;
-				gap: 16px;
-				margin: 0 auto;
-				margin-top: 32px;
+				width: 100%;
 
 				.search {
 					position: relative;
 					max-width: 500px;
 					width: 100%;
+					margin: 0 auto;
 
 					input {
 						width: 100%;
+						border: none;
+						background-color: var(--background-secondary);
+						box-shadow:
+							1px 1px 6px var(--background-tertiary) inset,
+							-1px -1px 6px var(--background-primary) inset;
+
+						&:hover,
+						&:focus {
+							outline: 2px solid var(--primary);
+							outline-offset: 2px;
+						}
 					}
 
 					button {
@@ -101,16 +99,5 @@
 				background-repeat: no-repeat;
 			}
 		</style>
-
-		<script type="module">
-			const timeSink = document.querySelector('#time');
-
-			function update() {
-				timeSink.innerText = new Date().toISOString().split('T')[1].split('.')[0];
-			}
-
-			update();
-			setInterval(update, 500);
-		</script>
 	</body>
 </html>
