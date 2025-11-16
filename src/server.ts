@@ -39,7 +39,7 @@ export function serve(port: number, hostname: string) {
 				return new Response(result.text);
 
 			case 'url':
-				return Response.redirect(url);
+				return Response.redirect(result.href);
 
 			case 'redirect': {
 				const newURL = new URL(url.origin);
