@@ -1,6 +1,7 @@
-import { commands } from './commands.ts';
+import { commands, RedirectHome } from './commands.ts';
 
 type Result =
+	| { type: 'redirect'; page: 'home' }
 	| { type: 'url'; href: string }
 	| { type: 'search'; query: string }
 	| { type: 'text'; text: string }
@@ -23,6 +24,10 @@ export function search(query: string): Result {
 
 	if (!command) {
 		return { type: 'error', message: `Command "${name}" not found` };
+	}
+
+	if (command.handle === RedirectHome) {
+		return { type: 'redirect', page: 'home' };
 	}
 
 	const rawResult = typeof command.handle == 'string' ? command.handle : command.handle(args);

@@ -39,7 +39,13 @@ export function serve(port: number, hostname: string) {
 				return new Response(result.text);
 
 			case 'url':
-				return Response.redirect(result.href);
+				return Response.redirect(url);
+
+			case 'redirect': {
+				const newURL = new URL(url.origin);
+				newURL.pathname = result.page === 'home' ? '/' : '';
+				return Response.redirect(newURL);
+			}
 
 			case 'error':
 				return error(400, result.message);

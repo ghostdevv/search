@@ -1,11 +1,13 @@
 import { Table } from '@sauber/table';
 import ansiRegex from 'ansi-regex';
 
+export const RedirectHome = Symbol.for('RedirectHome');
+
 interface Command {
 	name: string;
 	description: string;
 	aliases?: string[];
-	handle: string | ((args: string[]) => string);
+	handle: typeof RedirectHome | string | ((args: string[]) => string);
 }
 
 export const commands: Command[] = [
@@ -161,5 +163,10 @@ export const commands: Command[] = [
 
 			return table.toString().replace(ansiRegex(), '');
 		},
+	},
+	{
+		name: 'home',
+		description: 'Home Page',
+		handle: RedirectHome,
 	},
 ];
