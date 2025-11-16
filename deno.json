@@ -1,4 +1,5 @@
 {
+	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
 	"version": "3.0.0",
 	"tasks": {
 		"dev": "deno run --allow-net --allow-env --allow-read --allow-run --watch src/main.ts",
@@ -17,5 +18,6 @@
 		"ansi-regex": "npm:ansi-regex@^6.2.2",
 		"citty": "npm:citty@^0.1.6",
 		"dedent": "npm:dedent@^1.7.0"
-	}
+	},
+	"unstable": ["raw-imports"]
 }

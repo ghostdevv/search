@@ -1,4 +1,4 @@
-import { searchSiteTemplate } from './search_site.ts';
+import homeHTML from './home/home.html' with { type: 'text' };
 import { search } from './search.ts';
 
 function error(code: number, message: string) {
@@ -20,7 +20,7 @@ export function serve(port: number, hostname: string) {
 		const query = url.searchParams.get('q')?.trim();
 
 		if (typeof query != 'string' || query.length == 0) {
-			return new Response(searchSiteTemplate, {
+			return new Response(homeHTML, {
 				headers: {
 					'Content-Type': 'text/html',
 				},
