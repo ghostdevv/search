@@ -14,7 +14,7 @@
 	},
 	"imports": {
 		"@sauber/table": "jsr:@sauber/table@0.1.0",
-		"@std/cli": "jsr:@std/cli@^1.0.22",
+		"@std/cli": "jsr:@std/cli@^1.0.23",
 		"citty": "npm:citty@^0.1.6",
 		"dedent": "npm:dedent@^1.7.0"
 	}
