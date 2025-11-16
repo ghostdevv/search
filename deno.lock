@@ -2,29 +2,22 @@
   "version": "5",
   "specifiers": {
     "jsr:@sauber/table@0.1.0": "0.1.0",
-    "jsr:@std/cli@^1.0.23": "1.0.23",
-    "jsr:@std/internal@^1.0.12": "1.0.12",
     "npm:ansi-regex@*": "6.0.1",
+    "npm:ansi-regex@^6.2.2": "6.2.2",
     "npm:citty@~0.1.6": "0.1.6",
     "npm:dedent@^1.7.0": "1.7.0"
   },
   "jsr": {
     "@sauber/table@0.1.0": {
       "integrity": "528a02e0023c9e4aa00e438bebd9224263e718fac35fe833bc80b937e3d5ae65"
-    },
-    "@std/cli@1.0.23": {
-      "integrity": "bf95b7a9425ba2af1ae5a6359daf58c508f2decf711a76ed2993cd352498ccca",
-      "dependencies": [
-        "jsr:@std/internal"
-      ]
-    },
-    "@std/internal@1.0.12": {
-      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
     }
   },
   "npm": {
     "ansi-regex@6.0.1": {
       "integrity": "sha512-n5M855fKb2SsfMIiFFoVrABHJC8QtHwVx+mHWP3QcEqBHYienj5dHSgjbxtC0WEZXYt4wcD6zrQElDPhFuZgfA=="
+    },
+    "ansi-regex@6.2.2": {
+      "integrity": "sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg=="
     },
     "citty@0.1.6": {
       "integrity": "sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==",
@@ -42,7 +35,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@sauber/table@0.1.0",
-      "jsr:@std/cli@^1.0.23",
+      "npm:ansi-regex@^6.2.2",
       "npm:citty@~0.1.6",
       "npm:dedent@^1.7.0"
     ]

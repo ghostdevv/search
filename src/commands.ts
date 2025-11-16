@@ -1,5 +1,5 @@
 import { Table } from '@sauber/table';
-import ansiRegex from 'npm:ansi-regex';
+import ansiRegex from 'ansi-regex';
 
 interface Command {
 	name: string;
