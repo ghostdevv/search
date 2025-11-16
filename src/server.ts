@@ -1,4 +1,4 @@
-import homeHTML from './home/home.html' with { type: 'text' };
+import { renderHomePage } from './home/home.ts';
 import { search } from './search.ts';
 
 function error(code: number, message: string) {
@@ -6,7 +6,7 @@ function error(code: number, message: string) {
 }
 
 export function serve(port: number, hostname: string) {
-	const server = Deno.serve({ port, hostname }, (request) => {
+	const server = Deno.serve({ port, hostname }, async (request) => {
 		if (request.method != 'GET') {
 			return error(405, 'Method Not Allowed');
 		}
@@ -20,7 +20,7 @@ export function serve(port: number, hostname: string) {
 		const query = url.searchParams.get('q')?.trim();
 
 		if (typeof query != 'string' || query.length == 0) {
-			return new Response(homeHTML, {
+			return new Response(await renderHomePage(), {
 				headers: {
 					'Content-Type': 'text/html',
 				},

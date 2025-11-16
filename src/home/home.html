@@ -5,42 +5,46 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
 			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/ghostsui@1/css/ghostsui.css"
+			href="https://cdn.jsdelivr.net/npm/ghostsui@beta/ghostsui.css"
 		/>
 		<title>Search</title>
 	</head>
 	<body>
 		<main>
+			<h1 id="time"></h1>
+
 			<form>
-				<input type="search" name="q" placeholder="Search..." />
-				<button class="secondary">
-					<svg
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<g class="oi-search">
-							<path
-								class="oi-ellipse"
-								d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-							<path
-								class="oi-line"
-								d="M21 21L15 15"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-						</g>
-					</svg>
-				</button>
+				<div class="search">
+					<input type="search" name="q" placeholder="Search..." />
+					<button class="icon">
+						<svg
+							width="20"
+							height="20"
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g class="oi-search">
+								<path
+									class="oi-ellipse"
+									d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+								<path
+									class="oi-line"
+									d="M21 21L15 15"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</g>
+						</svg>
+					</button>
+				</div>
 			</form>
 		</main>
 
@@ -53,6 +57,16 @@
 				padding: 32px;
 			}
 
+			#time {
+				margin: 0 auto;
+				margin-top: 25dvh;
+				text-align: center;
+				background-color: var(--background-tertiary);
+				padding: 8px 12px;
+				border-radius: 12px;
+				width: fit-content;
+			}
+
 			form {
 				display: flex;
 				flex-flow: row nowrap;
@@ -60,22 +74,43 @@
 				align-items: center;
 				gap: 16px;
 				margin: 0 auto;
-				margin-top: 25dvh;
+				margin-top: 32px;
+
+				.search {
+					position: relative;
+					max-width: 500px;
+					width: 100%;
+
+					input {
+						width: 100%;
+					}
+
+					button {
+						position: absolute;
+						right: 16px;
+						top: 50%;
+						transform: translateY(-50%);
+					}
+				}
 			}
 
-			input {
-				max-width: 500px;
-			}
-
-			button {
-				border: none;
-				border-radius: 100%;
-				width: 42px;
-				height: 42px;
-				padding: 0px;
-				display: grid;
-				place-items: center;
+			body {
+				background: __WALLPAPER__;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
 			}
 		</style>
+
+		<script type="module">
+			const timeSink = document.querySelector('#time');
+
+			function update() {
+				timeSink.innerText = new Date().toISOString().split('T')[1].split('.')[0];
+			}
+
+			update();
+			setInterval(update, 500);
+		</script>
 	</body>
 </html>
